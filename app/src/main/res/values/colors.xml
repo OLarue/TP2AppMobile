@@ -7,4 +7,16 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="ticket_priority_low">#2ECC71</color>
+    <color name="ticket_priority_normal">#3498DB</color>
+    <color name="ticket_priority_high">#F39C12</color>
+    <color name="ticket_priority_critical">#C0392B</color>
+
+    <color name="ticket_status_open">#6C5CE7</color>
+    <color name="ticket_status_solved">#2D3436</color>
+
+    <color name="gateway_status_online">#2ED573</color>
+    <color name="gateway_status_offline">#FF4757</color>
+
 </resources>
