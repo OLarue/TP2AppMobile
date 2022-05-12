@@ -16,7 +16,7 @@
         android:hardwareAccelerated="true"
         android:theme="@style/Theme.TP2">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ui.loading.LoadingActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
