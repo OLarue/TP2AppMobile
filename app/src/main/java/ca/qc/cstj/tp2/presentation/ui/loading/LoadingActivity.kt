@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.CountDownTimer
 import android.viewbinding.library.activity.viewBinding
 import androidx.activity.viewModels
+import ca.qc.cstj.tp2.MainActivity
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.databinding.ActivityLoadingBinding
@@ -23,6 +24,11 @@ class LoadingActivity: AppCompatActivity() {
         viewModel.loadingProgress.observe(this) {
             binding.txvLoading.text = getString(R.string.LoadingText, it, Constants.LOADING_MAX)
             binding.pgbLoading.setProgress(it, true)
+        }
+
+        viewModel.isTimerDone.observe(this) {
+            if(it)
+                startActivity(MainActivity.newIntent(this))
         }
     }
 }

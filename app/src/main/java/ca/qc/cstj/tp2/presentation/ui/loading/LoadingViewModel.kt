@@ -8,6 +8,8 @@ import androidx.lifecycle.ViewModel
 class LoadingViewModel : ViewModel() {
     private val _loadingProgress = MutableLiveData<Int>()
     val loadingProgress: LiveData<Int> get() = _loadingProgress
+    private val _isTimerDone = MutableLiveData<Boolean>()
+    val isTimerDone: LiveData<Boolean> get() = _isTimerDone
 
     private val timer = object: CountDownTimer(10000, 1000) {
         override fun onTick(millisUntilFinished: Long) {
@@ -15,7 +17,7 @@ class LoadingViewModel : ViewModel() {
         }
 
         override fun onFinish() {
-            // Change activity
+            _isTimerDone.value = true
         }
     }
 
@@ -27,4 +29,6 @@ class LoadingViewModel : ViewModel() {
     fun incrementProgress() {
         _loadingProgress.value = _loadingProgress.value!!.plus(1)
     }
+
+
 }
