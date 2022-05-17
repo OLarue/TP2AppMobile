@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/navigation_tickets"
+        android:icon="@drawable/tickets"
+        android:title="@string/navBarTickets" />
+
+    <item
+        android:id="@+id/navigation_gateways"
+        android:icon="@drawable/gateway"
+        android:title="@string/navBarGateways" />
+
+    <item
+        android:id="@+id/navigation_network"
+        android:icon="@drawable/network"
+        android:title="@string/navBarNetwork" />
+</menu>
