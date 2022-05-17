@@ -4,9 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/SessionHiver2022/AppMobile/tp2/app/src/main/res/drawable/gateway.xml" value="0.196" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/drawable/rectancle.xml" value="0.2595" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/drawable/tickets.xml" value="0.152" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/activity_loading.xml" value="0.18802083333333333" />
+        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/drawable/rectancle.xml" value="0.152" />
+        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/activity_loading.xml" value="0.29518072289156627" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_detail_gateway.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_detail_ticket.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_gateway.xml" value="0.18802083333333333" />
