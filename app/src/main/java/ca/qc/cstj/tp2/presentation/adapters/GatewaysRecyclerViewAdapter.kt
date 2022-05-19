@@ -7,7 +7,7 @@ import ca.qc.cstj.tp2.databinding.ItemGatewayBinding
 import ca.qc.cstj.tp2.domain.models.Gateway
 
 class GatewaysRecyclerViewAdapter(
-    val gateways: List<Gateway> = listOf(),
+    var gateways: List<Gateway> = listOf(),
     private val onGatewayClick: (Gateway) -> Unit)
 : RecyclerView.Adapter<GatewaysRecyclerViewAdapter.ViewHolder>()
 {
