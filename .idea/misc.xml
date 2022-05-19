@@ -4,16 +4,15 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/SessionHiver2022/AppMobile/tp2/app/src/main/res/drawable/gateway.xml" value="0.196" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/drawable/rectancle.xml" value="0.152" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout-land/activity_loading.xml" value="0.37747747747747745" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/activity_loading.xml" value="0.29518072289156627" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/1950658/Documents/androidTPSynthese/app/src/main/res/layout/fragment_detail_ticket.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/1950658/Documents/androidTPSynthese/app/src/main/res/layout/fragment_tickets.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/1950658/Documents/androidTPSynthese/app/src/main/res/layout/item_ticket.xml" value="0.33" />
+        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/activity_loading.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_detail_gateway.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_detail_ticket.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_gateway.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_network.xml" value="0.18802083333333333" />
         <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/layout/fragment_tickets.xml" value="0.18802083333333333" />
-        <entry key="..\:/Users/alexs/Documents/GitHub/TP2AppMobile/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
       </map>
     </option>
   </component>
