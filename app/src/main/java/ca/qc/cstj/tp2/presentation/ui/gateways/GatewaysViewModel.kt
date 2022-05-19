@@ -1,4 +1,6 @@
 package ca.qc.cstj.tp2.presentation.ui.gateways
 
-class GatewaysViewModel {
+import androidx.lifecycle.ViewModel
+
+class GatewaysViewModel : ViewModel() {
 }
