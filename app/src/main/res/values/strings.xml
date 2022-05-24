@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">TP2</string>
+    <string name="LoadingText">Loading %d/%d …</string>
+    <string name="TeamNames">Alexis Millette\nOlivier Larue\nPierre-Antoine Lajoie</string>
+    <string name="ReservedName">Tenretni - 2021®</string>
+    <string name="navBarTickets">Tickets</string>
+    <string name="navBarGateways">Gateways</string>
+    <string name="navBarNetwork">Network</string>
 </resources>

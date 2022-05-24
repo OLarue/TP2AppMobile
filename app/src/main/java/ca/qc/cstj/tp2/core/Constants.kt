@@ -25,4 +25,5 @@ object Constants {
         Online, Offline
     }
 
+    val LOADING_MAX = 10
 }
