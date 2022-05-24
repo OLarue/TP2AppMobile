@@ -13,6 +13,7 @@ class LoadingViewModel : ViewModel() {
     val isTimerDone: LiveData<Boolean> get() = _isTimerDone
 
     private val timer = object: CountDownTimer((Constants.LOADING_MAX * 1000).toLong(), 1000) {
+
         override fun onTick(millisUntilFinished: Long) {
             incrementProgress()
         }

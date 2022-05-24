@@ -26,4 +26,8 @@ object Constants {
     }
 
     val LOADING_MAX = 10
+  
+    object RefreshRates{
+        const val TICKET_REFRESH_RATE : Long = 30000
+    }
 }
