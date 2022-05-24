@@ -21,7 +21,7 @@ class TicketRepository {
                     emit(LoadingResource.Loading())
                     emit(LoadingResource.Success(ticketDataSource.retrieveAll()))
                 } catch (ex: Exception){
-                    emit(LoadingResource.Error(ex,"erreur serveur"))
+                    emit(LoadingResource.Error(ex,ex.message))
                 }
                 delay(Constants.RefreshRates.TICKET_REFRESH_RATE)
             }

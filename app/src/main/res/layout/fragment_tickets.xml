@@ -18,4 +18,12 @@
         tools:listitem="@layout/item_ticket"
         />
 
+    <androidx.core.widget.ContentLoadingProgressBar
+        android:id="@+id/pgbTicketLoading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        style="?android:attr/progressBarStyleLarge"
+        android:indeterminateTint="@android:color/black"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
