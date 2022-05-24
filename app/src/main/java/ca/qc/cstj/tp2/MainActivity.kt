@@ -1,6 +1,8 @@
 package ca.qc.cstj.tp2
+
 import android.content.Context
 import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.viewbinding.library.activity.viewBinding
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +29,12 @@ class MainActivity : AppCompatActivity() {
         )
         setupActionBarWithNavController(navController, appBarConfiguration)
         binding.bnvMain.setupWithNavController(navController)
+    }
+
+    companion object {
+        fun newIntent(context: Context) : Intent {
+            return Intent(context, MainActivity::class.java)
+        }
     }
 
     companion object {
