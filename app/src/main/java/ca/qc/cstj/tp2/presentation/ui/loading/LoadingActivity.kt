@@ -21,6 +21,8 @@ class LoadingActivity: AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_loading)
 
+        binding.pgbLoading.max = Constants.LOADING_MAX
+
         viewModel.loadingProgress.observe(this) {
             binding.txvLoading.text = getString(R.string.LoadingText, it, Constants.LOADING_MAX)
             binding.pgbLoading.setProgress(it, true)
