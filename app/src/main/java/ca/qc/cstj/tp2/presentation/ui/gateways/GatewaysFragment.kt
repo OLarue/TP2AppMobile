@@ -36,11 +36,14 @@ class GatewaysFragment : Fragment(R.layout.fragment_gateway) {
                     Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
-
+                    binding.pgbLoading.show()
+                    binding.rcvGateways.visibility = View.INVISIBLE
                 }
                 is LoadingResource.Success -> {
                     gatewaysRecyclerViewAdapter.gateways = it.data!!
                     gatewaysRecyclerViewAdapter.notifyAllItemChanged()
+                    binding.pgbLoading.hide()
+                    binding.rcvGateways.visibility = View.VISIBLE
                 }
             }
         }

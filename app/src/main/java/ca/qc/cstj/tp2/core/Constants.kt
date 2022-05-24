@@ -1,5 +1,7 @@
 package ca.qc.cstj.tp2.core
 
+import ca.qc.cstj.tp2.presentation.adapters.GatewaysRecyclerViewAdapter
+
 object Constants {
 
     object BaseURL {
@@ -29,5 +31,6 @@ object Constants {
   
     object RefreshRates{
         const val TICKET_REFRESH_RATE : Long = 30000
+        const val GATEWAY_REFRESH_RATE : Long = 60000
     }
 }
