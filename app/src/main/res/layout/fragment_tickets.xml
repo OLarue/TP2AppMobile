@@ -1,6 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="57dp"
+        tools:layout_editor_absoluteY="67dp">
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvCustomerName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Customer name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvAdresse"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="adresse"
+        app:layout_constraintEnd_toEndOf="@+id/tvCustomerName"
+        app:layout_constraintStart_toStartOf="@+id/tvCustomerName"
+        app:layout_constraintTop_toBottomOf="@+id/tvCustomerName" />
+
+    <TextView
+        android:id="@+id/tvVille"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Ville"
+        app:layout_constraintEnd_toEndOf="@+id/tvAdresse"
+        app:layout_constraintStart_toStartOf="@+id/tvAdresse"
+        app:layout_constraintTop_toBottomOf="@+id/tvAdresse" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvVille"
+        app:layout_constraintStart_toStartOf="@+id/tvVille"
+        app:layout_constraintTop_toBottomOf="@+id/tvVille"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/tvGateways"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="Gateways"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

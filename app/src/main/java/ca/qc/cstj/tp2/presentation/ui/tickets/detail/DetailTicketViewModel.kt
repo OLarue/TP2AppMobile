@@ -1,4 +1,6 @@
 package ca.qc.cstj.tp2.presentation.ui.tickets.detail
 
-class DetailTicketViewModel {
+import androidx.lifecycle.ViewModel
+
+class DetailTicketViewModel : ViewModel() {
 }
