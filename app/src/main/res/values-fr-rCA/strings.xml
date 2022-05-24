@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="LoadingText">Chargement %d/%d ...</string>
+    <string name="navBarTickets">Billets</string>
+    <string name="navBarGateways">Bornes</string>
+    <string name="navBarNetwork">Réseau</string>
+    <string name="onlineStatusGateway">En ligne</string>
+    <string name="offlineStatusGateway">Hors ligne</string>
+</resources>
