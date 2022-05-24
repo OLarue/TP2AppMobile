@@ -21,7 +21,7 @@ class GatewayRepository {
                 } catch (ex: Exception) {
                     emit(LoadingResource.Error(ex, ex.message))
                 }
-                delay(Constants.TICKETS_REFRESH_RATE)
+                delay(Constants.GATEWAYS_REFRESH_RATE)
             }
         }
     }

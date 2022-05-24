@@ -27,5 +27,5 @@ object Constants {
 
     val LOADING_MAX = 10
 
-    val TICKETS_REFRESH_RATE: Long = 60000
+    val GATEWAYS_REFRESH_RATE: Long = 60000
 }
