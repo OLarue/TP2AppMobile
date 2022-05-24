@@ -4,9 +4,9 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class Config(
-    val nac: String,
-    val SSID: String,
-    val version: String,
-    val kernel: List<String>,
-    val kernelRevision: Int
+    val mac: String = "",
+    val SSID: String = "",
+    val version: String = "",
+    val kernel: List<String> = listOf(),
+    val kernelRevision: Int = 0
 )
