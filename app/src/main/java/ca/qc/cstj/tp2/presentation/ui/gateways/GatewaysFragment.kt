@@ -23,18 +23,7 @@ class GatewaysFragment : Fragment(R.layout.fragment_gateway) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        gatewaysRecyclerViewAdapter = GatewaysRecyclerViewAdapter(listOf(
-            Gateway(
-                "0",
-                "083748357",
-                "9272",
-                "9703",
-                "9027820872",
-                Connection("s", "s", 20F, 20F, 20, 20),
-                Config("-", ",", "2", listOf(), 1),
-                Customer("a", "s", "s", ",", ",", ",", ",", ",", Coordinate(20F, 20F))
-            )
-        ), ::onRecyclerViewGatewayClick)
+        gatewaysRecyclerViewAdapter = GatewaysRecyclerViewAdapter(listOf(), ::onRecyclerViewGatewayClick)
 
         binding.rcvGateways.apply {
             layoutManager = GridLayoutManager(requireContext(), 2)
