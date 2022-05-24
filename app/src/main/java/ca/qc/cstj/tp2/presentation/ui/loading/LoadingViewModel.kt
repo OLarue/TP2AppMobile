@@ -4,6 +4,7 @@ import android.os.CountDownTimer
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import ca.qc.cstj.tp2.core.Constants
 
 class LoadingViewModel : ViewModel() {
     private val _loadingProgress = MutableLiveData<Int>()
@@ -11,7 +12,7 @@ class LoadingViewModel : ViewModel() {
     private val _isTimerDone = MutableLiveData<Boolean>()
     val isTimerDone: LiveData<Boolean> get() = _isTimerDone
 
-    private val timer = object: CountDownTimer(10000, 1000) {
+    private val timer = object: CountDownTimer((Constants.LOADING_MAX * 1000).toLong(), 1000) {
         override fun onTick(millisUntilFinished: Long) {
             incrementProgress()
         }
