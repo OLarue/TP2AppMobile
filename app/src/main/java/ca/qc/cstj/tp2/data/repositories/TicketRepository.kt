@@ -2,6 +2,7 @@ package ca.qc.cstj.tp2.data.repositories
 
 import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.LoadingResource
+import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.datasources.TicketDataSource
 import ca.qc.cstj.tp2.domain.models.Ticket
 import kotlinx.coroutines.delay
@@ -25,6 +26,14 @@ class TicketRepository {
                 }
                 delay(Constants.RefreshRates.TICKET_REFRESH_RATE)
             }
+        }
+    }
+
+    suspend fun retrieve(href: String): Resource<Ticket> {
+        try{
+            return Resource.Success(ticketDataSource.retrieve(href))
+        } catch (ex:Exception) {
+            return Resource.Error(ex, ex.message)
         }
     }
 

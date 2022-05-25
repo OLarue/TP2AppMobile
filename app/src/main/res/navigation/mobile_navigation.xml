@@ -22,5 +22,9 @@
     <fragment
         android:id="@+id/detailTicketFragment"
         android:name="ca.qc.cstj.tp2.presentation.ui.tickets.detail.DetailTicketFragment"
-        android:label="DetailTicketFragment" />
+        android:label="DetailTicketFragment" >
+        <argument
+            android:name="href"
+            app:argType="string" />
+    </fragment>
 </navigation>

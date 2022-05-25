@@ -25,7 +25,7 @@
             app:layout_constraintEnd_toStartOf="@id/chpTicketPriority"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/chpTicketPriority"
-            tools:text="Ticket Number" />
+            tools:text="Ticket Number"/>
         <TextView
             android:id="@+id/txvTicketCreatedDate"
             android:layout_width="wrap_content"

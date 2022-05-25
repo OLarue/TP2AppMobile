@@ -8,6 +8,7 @@ plugins {
 
 android {
     compileSdk 32
+    buildToolsVersion '32'
 
     defaultConfig {
         applicationId "ca.qc.cstj.tp2"
