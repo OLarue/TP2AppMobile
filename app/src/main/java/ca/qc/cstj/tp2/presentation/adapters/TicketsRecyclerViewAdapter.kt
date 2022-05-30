@@ -9,7 +9,9 @@ import ca.qc.cstj.tp2.databinding.ItemTicketBinding
 import ca.qc.cstj.tp2.domain.models.Ticket
 
 
-class TicketsRecyclerViewAdapter(var tickets: List<Ticket> = listOf())
+class TicketsRecyclerViewAdapter(
+    var tickets: List<Ticket> = listOf(),
+    private val onTicketClick: (Ticket) -> Unit)
     : RecyclerView.Adapter<TicketsRecyclerViewAdapter.ViewHolder>()  {
 
 
@@ -39,6 +41,10 @@ class TicketsRecyclerViewAdapter(var tickets: List<Ticket> = listOf())
     override fun onBindViewHolder(holder: TicketsRecyclerViewAdapter.ViewHolder, position: Int) {
         val ticket = tickets[position]
         holder.bind(ticket)
+
+        holder.itemView.setOnClickListener {
+            onTicketClick(ticket)
+        }
     }
 
     override fun getItemCount()= tickets.size

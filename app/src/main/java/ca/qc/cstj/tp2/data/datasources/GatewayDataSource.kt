@@ -1,6 +1,7 @@
 package ca.qc.cstj.tp2.data.datasources
 
 import ca.qc.cstj.tp2.core.Constants
+import ca.qc.cstj.tp2.domain.models.Customer
 import ca.qc.cstj.tp2.domain.models.Gateway
 import com.github.kittinunf.fuel.httpGet
 import com.github.kittinunf.fuel.json.responseJson
@@ -16,6 +17,20 @@ class GatewayDataSource {
     suspend fun retrieveAll() : List<Gateway> {
         return withContext(Dispatchers.IO) {
             val (_, _, result) = Constants.BaseURL.GATEWAYS.httpGet().responseJson()
+            when(result) {
+                is Result.Success -> {
+                    return@withContext json.decodeFromString(result.value.content)
+                }
+                is Result.Failure -> {
+                    throw result.error.exception
+                }
+            }
+        }
+    }
+
+    suspend fun retrieveAllFromCustomer(href:String) : List<Gateway>{
+        return withContext(Dispatchers.IO) {
+            val (_, _, result) = href.plus("/gateways").httpGet().responseJson()
             when(result) {
                 is Result.Success -> {
                     return@withContext json.decodeFromString(result.value.content)

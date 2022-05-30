@@ -4,12 +4,25 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
+    <!-- Ticket -->
+    <include
+        android:id="@+id/includeTicket"
+        layout="@layout/item_ticket"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    <!-- Fin ticket -->
 
+    <!-- detail + gateways-->
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        tools:layout_editor_absoluteX="57dp"
-        tools:layout_editor_absoluteY="67dp">
+        android:layout_height="450dp"
+        android:layout_margin="8dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="15dp"
+
+        app:layout_constraintTop_toBottomOf="@+id/includeTicket">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -19,28 +32,31 @@
                 android:id="@+id/tvCustomerName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="Customer name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Customer name"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                />
 
             <TextView
                 android:id="@+id/tvAdress"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="adresse"
                 app:layout_constraintEnd_toEndOf="@+id/tvCustomerName"
                 app:layout_constraintStart_toStartOf="@+id/tvCustomerName"
-                app:layout_constraintTop_toBottomOf="@+id/tvCustomerName" />
+                app:layout_constraintTop_toBottomOf="@+id/tvCustomerName"
+                tools:text="adresse" />
 
             <TextView
                 android:id="@+id/tvCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                tools:text="City"
                 app:layout_constraintEnd_toEndOf="@+id/tvAdress"
                 app:layout_constraintStart_toStartOf="@+id/tvAdress"
-                app:layout_constraintTop_toBottomOf="@+id/tvAdress" />
+                app:layout_constraintTop_toBottomOf="@+id/tvAdress"
+                tools:text="City" />
 
             <ImageView
                 android:id="@+id/imvCountryFlag"
@@ -50,24 +66,67 @@
                 app:layout_constraintEnd_toEndOf="@+id/tvCity"
                 app:layout_constraintStart_toStartOf="@+id/tvCity"
                 app:layout_constraintTop_toBottomOf="@+id/tvCity"
-                tools:ignore="MissingConstraints" />
+                tools:src="@drawable/cad"
+                />
 
             <TextView
                 android:id="@+id/tvGateways"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="8dp"
-                android:text="Gateways"
+                android:text="Gateway"
+                android:textSize="18sp"
+                android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="@+id/imvCountryFlag"
                 app:layout_constraintStart_toStartOf="@+id/imvCountryFlag"
-                app:layout_constraintTop_toBottomOf="@+id/imvCountryFlag"
+                app:layout_constraintTop_toBottomOf="@+id/imvCountryFlag" />
 
+            <com.google.android.material.floatingactionbutton.FloatingActionButton
+                android:id="@+id/fabLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
+                android:clickable="true"
+                android:src="@drawable/ic_baseline_my_location_24"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-                />
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rcvCustomerGateways"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintTop_toBottomOf="@+id/tvGateways"
+                tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                tools:layout_editor_absoluteX="0dp"
 
-
+                tools:listitem="@layout/item_gateway"
+                tools:spanCount="2" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+    <Button
+        android:id="@+id/btnInstall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="INSTALL"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/btnSolve"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/btnSolve"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="SOLVE"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnInstall"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
