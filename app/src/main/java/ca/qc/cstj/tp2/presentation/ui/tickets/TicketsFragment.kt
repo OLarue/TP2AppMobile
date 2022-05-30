@@ -7,12 +7,14 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.core.LoadingResource
 import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.core.notifyAllItemChanged
 import ca.qc.cstj.tp2.databinding.FragmentTicketsBinding
+import ca.qc.cstj.tp2.domain.models.Ticket
 import ca.qc.cstj.tp2.presentation.adapters.TicketsRecyclerViewAdapter
 
 class TicketsFragment : Fragment(R.layout.fragment_tickets) {
@@ -27,7 +29,7 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        ticketsRecyclerViewAdapter = TicketsRecyclerViewAdapter()
+        ticketsRecyclerViewAdapter = TicketsRecyclerViewAdapter(listOf(), ::onRecyclerViewTicketClick)
 
         binding.rcvTickets.apply {
             layoutManager = LinearLayoutManager(requireContext())
@@ -54,9 +56,11 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
                 }
             }
         }
+    }
 
-
-
+    private fun onRecyclerViewTicketClick(ticket: Ticket){
+        val direction = TicketsFragmentDirections.actionNavigationTicketsToNavigationDetailTicketFragment(ticket.href)
+        findNavController().navigate(direction)
     }
 
 }

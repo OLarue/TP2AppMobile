@@ -6,6 +6,7 @@ import kotlinx.serialization.Serializable
 data class Customer(
     val href: String = "",
     val firstName: String = "",
+    val lastName: String ="",
     val email: String = "",
     val address: String = "",
     val city: String = "",
@@ -13,4 +14,5 @@ data class Customer(
     val postalCode: String = "",
     val phone: String = "",
     val coord: Coordinate = Coordinate()
+
 )

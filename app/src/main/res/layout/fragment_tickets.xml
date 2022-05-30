@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
-    
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rcvTickets"
         android:layout_width="match_parent"
@@ -25,5 +25,6 @@
         style="?android:attr/progressBarStyleLarge"
         android:indeterminateTint="@android:color/black"
         />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

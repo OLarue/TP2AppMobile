@@ -10,17 +10,25 @@
     <fragment
         android:id="@+id/navigation_tickets"
         android:name="ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragment"
-        android:label="TicketsFragment" />
+        android:label="TicketsFragment" >
+        <action
+            android:id="@+id/action_navigation_tickets_to_navigation_detailTicketFragment"
+            app:destination="@id/navigation_detailTicketFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_network"
         android:name="ca.qc.cstj.tp2.presentation.ui.network.NetworkFragment"
         android:label="NetworkFragment" />
     <fragment
-        android:id="@+id/detailGatewayFragment"
+        android:id="@+id/navigation_detailGatewayFragment"
         android:name="ca.qc.cstj.tp2.presentation.ui.gateways.detail.DetailGatewayFragment"
         android:label="DetailGatewayFragment" />
     <fragment
-        android:id="@+id/detailTicketFragment"
+        android:id="@+id/navigation_detailTicketFragment"
         android:name="ca.qc.cstj.tp2.presentation.ui.tickets.detail.DetailTicketFragment"
-        android:label="DetailTicketFragment" />
+        android:label="DetailTicketFragment" >
+        <argument
+            android:name="href"
+            app:argType="string" />
+    </fragment>
 </navigation>
