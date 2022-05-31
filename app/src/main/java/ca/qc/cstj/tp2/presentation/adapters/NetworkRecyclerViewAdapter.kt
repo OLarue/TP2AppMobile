@@ -1,10 +1,10 @@
 package ca.qc.cstj.tp2.presentation.adapters
 
-import android.net.Network
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ca.qc.cstj.tp2.databinding.ItemNetworkBinding
+import ca.qc.cstj.tp2.domain.models.Network
 
 class NetworkRecyclerViewAdapter(var networks: List<Network> = listOf())
     : RecyclerView.Adapter<NetworkRecyclerViewAdapter.ViewHolder>()
