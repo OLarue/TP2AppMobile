@@ -22,7 +22,11 @@
     <fragment
         android:id="@+id/navigation_detailGatewayFragment"
         android:name="ca.qc.cstj.tp2.presentation.ui.gateways.detail.DetailGatewayFragment"
-        android:label="DetailGatewayFragment" />
+        android:label="DetailGatewayFragment" >
+        <argument
+            android:name="href"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_detailTicketFragment"
         android:name="ca.qc.cstj.tp2.presentation.ui.tickets.detail.DetailTicketFragment"
@@ -30,5 +34,8 @@
         <argument
             android:name="href"
             app:argType="string" />
+        <action
+            android:id="@+id/action_navigation_detailTicketFragment_to_navigation_detailGatewayFragment"
+            app:destination="@id/navigation_detailGatewayFragment" />
     </fragment>
 </navigation>
