@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView
     android:layout_width="match_parent"
-    android:layout_height="200dp"
+    android:layout_height="wrap_content"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="8dp"
@@ -18,7 +18,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
-
+            android:textSize="24sp"
+            android:textStyle="bold"
             android:layout_marginTop="8dp"
             app:layout_constraintEnd_toStartOf="@+id/chpStatus"
             app:layout_constraintStart_toStartOf="parent"
@@ -30,6 +31,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="7dp"
+            android:textSize="18sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="@+id/txvNode"
             app:layout_constraintStart_toStartOf="@+id/txvNode"
             app:layout_constraintTop_toBottomOf="@+id/txvNode"
@@ -51,19 +54,106 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            android:layout_marginEnd="24dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imvSignalQuality"
             app:layout_constraintTop_toBottomOf="@+id/chpStatus"
             tools:text="-10 dBm" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/imvSignalQuality"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="16dp"
             app:layout_constraintBottom_toBottomOf="@+id/txvSignalQuality"
-            app:layout_constraintEnd_toStartOf="@+id/txvSignalQuality"
+            app:layout_constraintStart_toStartOf="@+id/guideline2"
             app:layout_constraintTop_toTopOf="@+id/txvSignalQuality"
             app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24" />
+
+        <ImageView
+            android:id="@+id/imvNetworkUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toBottomOf="@+id/tvUpload"
+            app:layout_constraintEnd_toEndOf="@+id/imvSignalQuality"
+            app:layout_constraintStart_toStartOf="@+id/imvSignalQuality"
+            app:layout_constraintTop_toTopOf="@+id/tvUpload"
+            app:srcCompat="@drawable/ic_outline_cloud_upload_24" />
+
+        <TextView
+            android:id="@+id/tvUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="24dp"
+            android:layout_marginBottom="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/txvSignalQuality"
+            app:layout_constraintTop_toBottomOf="@+id/txvSignalQuality"
+            tools:text="99.567 Ebps" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="206dp" />
+
+        <ImageView
+            android:id="@+id/imvLatency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            app:layout_constraintBottom_toBottomOf="@+id/txvLatency"
+            app:layout_constraintStart_toStartOf="@+id/guideline3"
+            app:layout_constraintTop_toTopOf="@+id/txvLatency"
+            app:srcCompat="@drawable/ic_baseline_sync_alt_24" />
+
+        <TextView
+            android:id="@+id/txvLatency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imvSignalQuality"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/imvLatency"
+            app:layout_constraintTop_toTopOf="@+id/imvSignalQuality"
+            tools:text="10 ns" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_begin="16dp" />
+
+        <ImageView
+            android:id="@+id/imvNetworkDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/textView3"
+            app:layout_constraintStart_toStartOf="@+id/imvLatency"
+            app:layout_constraintTop_toBottomOf="@+id/txvLatency"
+            app:srcCompat="@drawable/ic_outline_cloud_download_24" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/imvNetworkUpload"
+            app:layout_constraintEnd_toStartOf="@+id/guideline2"
+            app:layout_constraintStart_toEndOf="@+id/imvNetworkDownload"
+            app:layout_constraintTop_toBottomOf="@+id/imvSignalQuality"
+            tools:text="110.272 Ebps" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
