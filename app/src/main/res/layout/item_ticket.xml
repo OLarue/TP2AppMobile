@@ -21,10 +21,10 @@
             android:textSize="16sp"
 
             android:textStyle="bold"
-            app:layout_constraintBottom_toBottomOf="@+id/chpStatus"
-            app:layout_constraintEnd_toStartOf="@id/chpStatus"
+            app:layout_constraintBottom_toBottomOf="@+id/chpTicketPriority"
+            app:layout_constraintEnd_toStartOf="@id/chpTicketPriority"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/chpStatus"
+            app:layout_constraintTop_toTopOf="@+id/chpTicketPriority"
             tools:text="Ticket Number"/>
         <TextView
             android:id="@+id/txvTicketCreatedDate"
@@ -41,7 +41,7 @@
             />
 
         <com.google.android.material.chip.Chip
-            android:id="@+id/chpStatus"
+            android:id="@+id/chpTicketPriority"
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:textAlignment="center"
@@ -61,7 +61,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
 
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/chpStatus" />
+            app:layout_constraintTop_toBottomOf="@id/chpTicketPriority" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

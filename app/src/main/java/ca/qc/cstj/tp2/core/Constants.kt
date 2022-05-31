@@ -32,4 +32,13 @@ object Constants {
         const val GATEWAY_REFRESH_RATE : Long = 60000
         const val NETWORK_REFRESH_RATE : Long = 20000
     }
+
+
+    object NodeMetrics{
+        const val LATENCY : String = " ns"
+        const val SIGNAL : String = " dBm"
+        const val UPLOAD : String = " Ebps"
+        const val DOWNLOAD : String = " Ebps"
+        //We could've join them together( uplaod and download), but one might change in the future while the other stay at this metric.
+    }
 }

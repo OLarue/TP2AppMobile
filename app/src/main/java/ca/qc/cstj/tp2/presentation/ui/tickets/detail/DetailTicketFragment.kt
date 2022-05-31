@@ -90,8 +90,10 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
 
     private fun showTicketInfo(ticket: Ticket){
         with(binding) {
+            val ticketCreateDate = DateHelper.formatISODate(ticket.createdDate)
+
             includeTicket.txvTicketNumber.text = ticket.ticketNumber
-            includeTicket.txvTicketCreatedDate.text = ticket.createdDate
+            includeTicket.txvTicketCreatedDate.text = ticketCreateDate
 
             includeTicket.chpTicketStatus.chipBackgroundColor = ColorHelper.ticketStatusColor(
                 root.context,
