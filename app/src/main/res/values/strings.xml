@@ -13,5 +13,7 @@
     <string name="infoOfflineGateway">N/A</string>
     <string name="txvReboot">Next reboot at: </string>
     <string name="txvUpdate">Last update: </string>
+    <string name="btnInstallText">INSTALL</string>
+    <string name="btnSolveText">SOLVE</string>
 
 </resources>
