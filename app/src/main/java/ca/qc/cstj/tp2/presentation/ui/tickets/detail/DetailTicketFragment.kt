@@ -98,8 +98,6 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
                 ticket.status
 
             )
-//            Log.i("salut", includeTicket.chpTicketStatus.text.toString())
-
             includeTicket.chpTicketPriority.chipBackgroundColor = ColorHelper.ticketPriorityColor(
                 root.context,
                 ticket.priority
