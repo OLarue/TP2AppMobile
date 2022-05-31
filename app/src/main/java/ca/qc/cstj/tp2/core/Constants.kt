@@ -30,7 +30,7 @@ object Constants {
     object RefreshRates{
         const val TICKET_REFRESH_RATE : Long = 30000
         const val GATEWAY_REFRESH_RATE : Long = 60000
-        const val NETWORK_REFRESH_RATE : Long = 20000
+        const val NETWORK_REFRESH_RATE : Long = 120000
     }
 
 
