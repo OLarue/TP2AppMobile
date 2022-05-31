@@ -11,4 +11,7 @@
     <string name="pingString">%d ns</string>
     <string name="ebpsString">%.3f Ebps</string>
     <string name="infoOfflineGateway">N/A</string>
+    <string name="txvReboot">Next reboot at: </string>
+    <string name="txvUpdate">Last update: </string>
+
 </resources>
