@@ -86,6 +86,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
 
         binding.btnSolve.setOnClickListener {
             //TODO
+            viewModel.changeTicketStatus()
         }
 
         binding.btnInstall.setOnClickListener{
@@ -95,6 +96,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
         binding.btnOpen!!.setOnClickListener {
         // Mais pourquoi le bouton est nullable???
         //TODO
+            viewModel.changeTicketStatus()
         }
 
         binding.fabLocation.setOnClickListener{
