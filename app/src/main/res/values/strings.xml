@@ -17,5 +17,6 @@
     <string name="btnSolveText">SOLVE</string>
     <string name="btnUpdateTxt">Update</string>
     <string name="BtnReboottxt">Reboot</string>
+    <string name="title_activity_maps">MapsActivity</string>
 
 </resources>

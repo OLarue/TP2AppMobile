@@ -4,6 +4,7 @@ plugins {
     id 'org.jetbrains.kotlin.plugin.serialization' version '1.6.20'
     id 'kotlin-kapt'
     id 'androidx.navigation.safeargs'
+    id 'com.google.android.libraries.mapsplatform.secrets-gradle-plugin'
 }
 
 android {
@@ -57,6 +58,9 @@ dependencies {
     implementation 'com.github.kittinunf.fuel:fuel-json:2.3.1'
     implementation 'com.github.bumptech.glide:glide:4.13.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation 'com.google.android.gms:play-services-maps:18.0.2'
+
 //ViewBinding : https://github.com/yogacp/android-viewbinding
     implementation 'com.github.yogacp:android-viewbinding:1.0.4'
 //https://github.com/Kotlin/kotlinx.serialization

@@ -25,6 +25,7 @@ import ca.qc.cstj.tp2.presentation.adapters.TicketsRecyclerViewAdapter
 import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragmentDirections
 import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsViewModel
 import com.bumptech.glide.Glide
+import com.google.android.gms.maps.model.LatLng
 
 class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
 
@@ -35,6 +36,9 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
     private val args : DetailTicketFragmentArgs by navArgs()
 
     lateinit var gatewaysRecyclerViewAdapter: GatewaysRecyclerViewAdapter
+
+    private var position: LatLng? = null
+    private var customerName: String = "nom"
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -88,6 +92,14 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
             //TODO
         }
 
+        binding.fabLocation.setOnClickListener{
+            val action = DetailTicketFragmentDirections
+                .actionNavigationDetailTicketFragmentToMapsActivity(position!!,customerName)
+
+            findNavController().navigate(action)
+
+        }
+
     }
 
     private fun showTicketInfo(ticket: Ticket){
@@ -122,6 +134,9 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
                 .into(binding.imvCountryFlag)
 
         }
+        position = LatLng(customer.coord.latitude.toDouble(), customer.coord.longitude.toDouble())
+        customerName = customer.firstName.plus(" ").plus(customer.lastName)
+
     }
 
     private fun onRecyclerViewGatewayClick(gateway: Gateway) {
