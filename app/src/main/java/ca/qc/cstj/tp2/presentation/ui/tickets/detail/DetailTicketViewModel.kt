@@ -37,4 +37,8 @@ class DetailTicketViewModel(private val href:String) : ViewModel() {
         }
     }
 
+    fun changeTicketStatus(){
+
+    }
+
 }

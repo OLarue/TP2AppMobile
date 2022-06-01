@@ -37,5 +37,9 @@ class TicketRepository {
         }
     }
 
+    suspend fun updateStatus(){
+
+    }
+
 
 }

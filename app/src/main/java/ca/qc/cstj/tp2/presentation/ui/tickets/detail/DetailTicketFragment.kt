@@ -92,6 +92,11 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
             //TODO
         }
 
+        binding.btnOpen!!.setOnClickListener {
+        // Mais pourquoi le bouton est nullable???
+        //TODO
+        }
+
         binding.fabLocation.setOnClickListener{
             val action = DetailTicketFragmentDirections
                 .actionNavigationDetailTicketFragmentToMapsActivity(position!!,customerName)
@@ -122,6 +127,22 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
             includeTicket.chpTicketStatus.text = ticket.status
             includeTicket.chpTicketPriority.text = ticket.priority
         }
+
+        if (ticket.status == "Open")
+        {
+            with(binding){
+                btnOpen!!.visibility = View.INVISIBLE
+                btnInstall.visibility = View.VISIBLE
+                btnSolve.visibility = View.VISIBLE
+            }
+        } else {
+            with(binding){
+                btnOpen!!.visibility = View.VISIBLE
+                btnInstall.visibility = View.INVISIBLE
+                btnSolve.visibility = View.INVISIBLE
+            }
+        }
+
     }
 
     private fun showCustomerInfo(customer: Customer){
