@@ -18,5 +18,8 @@
     <string name="btnUpdateTxt">Update</string>
     <string name="BtnReboottxt">Reboot</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="btnOpen">OPEN</string>
+    <string name="btnSolve">SOLVE</string>
+    <string name="btnInstall">INSTALL</string>
 
 </resources>
