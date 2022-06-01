@@ -30,7 +30,7 @@ object Constants {
     object RefreshRates{
         const val TICKET_REFRESH_RATE : Long = 30000
         const val GATEWAY_REFRESH_RATE : Long = 60000
-        const val NETWORK_REFRESH_RATE : Long = 20000
+        const val NETWORK_REFRESH_RATE : Long = 120000
     }
 
 
@@ -41,4 +41,6 @@ object Constants {
         const val DOWNLOAD : String = " Ebps"
         //We could've join them together( uplaod and download), but one might change in the future while the other stay at this metric.
     }
+
+    val HARDCORDED_SERIAL_NUMBER : String = "ca6ac438abb1dd44"
 }

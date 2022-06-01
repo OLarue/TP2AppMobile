@@ -19,6 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txvReboot"
+        tools:text="Next reboot at: "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imvTenretniLogo" />
@@ -28,6 +29,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/txvUpdate"
+        tools:text="Last update: "
         app:layout_constraintEnd_toEndOf="@+id/txvNextReboot"
         app:layout_constraintStart_toStartOf="@+id/txvNextReboot"
         app:layout_constraintTop_toBottomOf="@+id/txvNextReboot" />

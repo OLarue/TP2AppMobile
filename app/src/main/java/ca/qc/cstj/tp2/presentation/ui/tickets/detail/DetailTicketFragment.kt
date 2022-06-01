@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ import ca.qc.cstj.tp2.domain.models.Gateway
 import ca.qc.cstj.tp2.domain.models.Ticket
 import ca.qc.cstj.tp2.presentation.adapters.GatewaysRecyclerViewAdapter
 import ca.qc.cstj.tp2.presentation.adapters.TicketsRecyclerViewAdapter
+import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragmentDirections
 import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsViewModel
 import com.bumptech.glide.Glide
 
@@ -122,11 +124,9 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
         }
     }
 
-
-
-
     private fun onRecyclerViewGatewayClick(gateway: Gateway) {
-
+        val direction = DetailTicketFragmentDirections.actionNavigationDetailTicketFragmentToNavigationDetailGatewayFragment(gateway.href)
+        findNavController().navigate(direction)
     }
 
 }
