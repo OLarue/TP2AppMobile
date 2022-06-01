@@ -1,5 +1,7 @@
 package ca.qc.cstj.tp2.presentation.ui.gateways.detail
 
+import android.os.Bundle
+import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -15,4 +17,17 @@ class DetailGatewayFragment : Fragment(R.layout.fragment_detail_gateway){
 
     private val args : DetailGatewayFragmentArgs by navArgs()
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+
+        binding.btnReboot.setOnClickListener {
+            viewModel.reboot()
+        }
+
+        binding.btnUpdate.setOnClickListener {
+
+        }
+    }
 }

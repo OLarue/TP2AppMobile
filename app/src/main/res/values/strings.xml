@@ -15,5 +15,7 @@
     <string name="txvUpdate">Last update: </string>
     <string name="btnInstallText">INSTALL</string>
     <string name="btnSolveText">SOLVE</string>
+    <string name="btnUpdateTxt">Update</string>
+    <string name="BtnReboottxt">Reboot</string>
 
 </resources>

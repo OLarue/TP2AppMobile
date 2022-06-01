@@ -41,4 +41,6 @@ object Constants {
         const val DOWNLOAD : String = " Ebps"
         //We could've join them together( uplaod and download), but one might change in the future while the other stay at this metric.
     }
+
+    val HARDCORDED_SERIAL_NUMBER : String = "ca6ac438abb1dd44"
 }

@@ -2,13 +2,13 @@ package ca.qc.cstj.tp2.data.repositories
 
 import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.LoadingResource
+import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.datasources.GatewayDataSource
-import ca.qc.cstj.tp2.domain.models.Customer
 import ca.qc.cstj.tp2.domain.models.Gateway
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
-import java.lang.Exception
+import kotlin.Exception
 
 class GatewayRepository {
     private val gatewayDataSource = GatewayDataSource()
@@ -41,4 +41,17 @@ class GatewayRepository {
             }
         }
     }
+
+    suspend fun reboot(serialNumber: String) : Flow<Resource<Gateway>> {
+        return flow{
+            while(true){
+                try {
+                    emit(Resource.Success(gatewayDataSource.reboot(serialNumber)))
+                } catch (ex:Exception){
+                    emit(Resource.Error(ex,ex.message))
+                }
+            }
+        }
+    }
+
 }
