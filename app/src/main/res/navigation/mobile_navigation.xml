@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
     app:startDestination="@id/navigation_tickets">
     <fragment
@@ -37,5 +38,20 @@
         <action
             android:id="@+id/action_navigation_detailTicketFragment_to_navigation_detailGatewayFragment"
             app:destination="@id/navigation_detailGatewayFragment" />
+        <action
+            android:id="@+id/action_navigation_detailTicketFragment_to_mapsActivity"
+            app:destination="@id/mapsActivity" />
     </fragment>
+    <activity
+        android:id="@+id/mapsActivity"
+        android:name="ca.qc.cstj.tp2.presentation.ui.map.MapsActivity"
+        android:label="activity_maps"
+        tools:layout="@layout/activity_maps" >
+        <argument
+            android:name="position"
+            app:argType="com.google.android.gms.maps.model.LatLng" />
+        <argument
+            android:name="customerName"
+            app:argType="string" />
+    </activity>
 </navigation>
