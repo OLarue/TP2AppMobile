@@ -2,6 +2,7 @@ package ca.qc.cstj.tp2.presentation.ui.gateways.detail
 
 import androidx.lifecycle.*
 import ca.qc.cstj.tp2.core.Constants
+import ca.qc.cstj.tp2.core.LoadingResource
 import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.repositories.GatewayRepository
 import ca.qc.cstj.tp2.domain.models.Gateway
@@ -12,12 +13,16 @@ import kotlinx.coroutines.flow.collect
 class DetailGatewayViewModel (private val href:String) : ViewModel(){
     private val gatewayRepository = GatewayRepository()
 
-    private val _gateway = MutableLiveData<Resource<Gateway>>()
-    val gateway: LiveData<Resource<Gateway>> get() = _gateway
+    private val _gateway = MutableLiveData<LoadingResource<Gateway>>()
+    val gateway: LiveData<LoadingResource<Gateway>> get() = _gateway
 
 
     init{
         viewModelScope.launch {
+
+            gatewayRepository.retrieve(href).collect {
+                _gateway.value = it
+            }
         }
     }
 

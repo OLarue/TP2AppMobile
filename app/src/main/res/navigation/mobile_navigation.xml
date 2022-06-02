@@ -7,7 +7,11 @@
     <fragment
         android:id="@+id/navigation_gateways"
         android:name="ca.qc.cstj.tp2.presentation.ui.gateways.GatewaysFragment"
-        android:label="GatewaysFragment" />
+        android:label="GatewaysFragment" >
+        <action
+            android:id="@+id/action_navigation_gateways_to_navigation_detailGatewayFragment"
+            app:destination="@id/navigation_detailGatewayFragment" />
+    </fragment>
     <fragment
         android:id="@+id/navigation_tickets"
         android:name="ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragment"
