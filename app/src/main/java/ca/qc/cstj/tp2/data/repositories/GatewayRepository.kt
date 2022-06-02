@@ -43,23 +43,30 @@ class GatewayRepository {
         }
     }
 
-    suspend fun reboot(serialNumber: String) : Flow<Resource<Gateway>> {
+    suspend fun reboot(serialNumber: String) : Flow<LoadingResource<Gateway>> {
         return flow{
             while(true){
                 try {
-                    emit(Resource.Success(gatewayDataSource.reboot(serialNumber)))
+                    emit(LoadingResource.Loading())
+                    emit(LoadingResource.Success(gatewayDataSource.reboot(serialNumber)))
                 } catch (ex:Exception){
-                    emit(Resource.Error(ex,ex.message))
+                    emit(LoadingResource.Error(ex,ex.message))
                 }
             }
         }
     }
 
-    suspend fun retrieve(href: String): Resource<Gateway> {
-        try{
-            return Resource.Success(gatewayDataSource.retrieve(href))
-        } catch (ex:Exception) {
-            return Resource.Error(ex, ex.message)
+    suspend fun retrieve(href: String): Flow<LoadingResource<Gateway>> {
+        return flow{
+            while(true){
+                try{
+                    emit(LoadingResource.Loading())
+                    emit(LoadingResource.Success(gatewayDataSource.retrieve(href)))
+                } catch (ex:Exception){
+                    emit(LoadingResource.Error(ex,ex.message))
+                }
+                delay(Constants.RefreshRates.GATEWAY_REFRESH_RATE)
+            }
         }
     }
 
