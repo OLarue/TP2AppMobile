@@ -5,27 +5,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.google.android.material.chip.Chip
-        android:id="@+id/chpStatusGateway"
-        android:layout_width="80dp"
-        android:layout_height="40dp"
-        android:textAlignment="center"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:backgroundTint="@color/gateway_status_online"
-        tools:text="Online" />
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guidelineMiddle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="376dp" />
+
+    <!-- Left side -->
     <TextView
         android:id="@+id/txvSerialNumber"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineMiddle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/chpStatusGateway"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/txvMacAddress"
         tools:text="2e01d675a95534670" />
 
     <TextView
@@ -34,9 +32,10 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineMiddle"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txvSerialNumber"
+        app:layout_constraintBottom_toTopOf="@id/txvSSID"
         tools:text="2e:01:d6:75:a9:55" />
 
     <TextView
@@ -48,6 +47,7 @@
         app:layout_constraintEnd_toStartOf="@id/txvPIN"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txvMacAddress"
+        app:layout_constraintBottom_toTopOf="@id/clHash"
         tools:text="SSID: online.driver.SCSI" />
 
     <TextView
@@ -56,197 +56,125 @@
         android:layout_height="wrap_content"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/txvSSID"
+        app:layout_constraintEnd_toEndOf="@id/guidelineMiddle"
         app:layout_constraintStart_toEndOf="@id/txvSSID"
-        app:layout_constraintTop_toBottomOf="@id/txvMacAddress"
+        app:layout_constraintTop_toTopOf="@id/txvSSID"
         tools:text="PIN: 779ad420" />
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="match_parent"
-        android:layout_height="300dp"
-        android:layout_margin="32dp"
-        app:cardCornerRadius="10dp"
-        app:cardElevation="15dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txvSSID">
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.Group
-                android:id="@+id/grpInfoGateway"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:visibility="visible"
-                app:constraint_referenced_ids="txvIPAddress,imvPing,txvPing,imvDownload,txvDownload,imvUpload,txvUpload" />
-
-            <TextView
-                android:id="@+id/txvIPAddress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintBottom_toTopOf="@id/imvPing"
-                tools:text="132.036.222.69"
-
-                />
-
-            <ImageView
-                android:id="@+id/imvPing"
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                app:layout_constraintEnd_toStartOf="@+id/txvPing"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/txvIPAddress"
-                app:layout_constraintBottom_toTopOf="@id/imvDownload"
-                app:srcCompat="@drawable/ic_baseline_sync_alt_24" />
-
-            <TextView
-                android:id="@+id/txvPing"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/imvPing"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imvPing"
-                app:layout_constraintTop_toTopOf="@id/imvPing"
-                tools:text="14 ns" />
-
-            <ImageView
-                android:id="@+id/imvDownload"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-
-                app:layout_constraintEnd_toStartOf="@+id/txvDownload"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@id/guideline7"
-                app:layout_constraintTop_toBottomOf="@id/imvPing"
-                app:layout_constraintBottom_toTopOf="@id/imvUpload"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/ic_outline_cloud_download_24" />
-
-            <TextView
-                android:id="@+id/txvDownload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/imvDownload"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imvDownload"
-                app:layout_constraintTop_toTopOf="@id/imvDownload"
-                tools:text="33.350 Ebps" />
-
-            <ImageView
-                android:id="@+id/imvUpload"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-
-                app:layout_constraintEnd_toStartOf="@+id/txvUpload"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@id/guideline7"
-                app:layout_constraintTop_toBottomOf="@id/imvDownload"
-                app:layout_constraintBottom_toTopOf="@id/imvSignalQuality"
-                app:layout_constraintVertical_bias="0.0"
-                app:srcCompat="@drawable/ic_outline_cloud_upload_24" />
-
-            <TextView
-                android:id="@+id/txvUpload"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/imvUpload"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imvUpload"
-                app:layout_constraintTop_toTopOf="@id/imvUpload"
-                tools:text="33.350 Ebps" />
-
-            <ImageView
-                android:id="@+id/imvSignalQuality"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-
-                app:layout_constraintEnd_toStartOf="@+id/txvSignalQuality"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintHorizontal_chainStyle="packed"
-                app:layout_constraintStart_toStartOf="@id/guideline7"
-                app:layout_constraintTop_toBottomOf="@id/imvUpload"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24" />
-
-            <TextView
-                android:id="@+id/txvSignalQuality"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="5dp"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintBottom_toBottomOf="@id/imvSignalQuality"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toEndOf="@+id/imvSignalQuality"
-                app:layout_constraintTop_toTopOf="@id/imvSignalQuality"
-                tools:text="-62 dBm" />
-
-
-            <TextView
-                android:id="@+id/txvOffline"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/infoOfflineGateway"
-                android:textSize="34sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:visibility="invisible" />
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical"
-                app:layout_constraintGuide_begin="85dp" />
-
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </androidx.cardview.widget.CardView>
-
-    <TextView
-        android:id="@+id/txvHash"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clHash"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
-        app:layout_constraintTop_toBottomOf="@id/cardView"
+        app:layout_constraintBottom_toTopOf="@id/clKernel"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        tools:text="ab UN ESTI DE GROS SANDWITCH 58"
-        />
+        app:layout_constraintTop_toBottomOf="@id/txvSSID"
+        app:layout_constraintEnd_toEndOf="@id/guidelineMiddle"
+
+        >
+        <TextView
+            android:id="@+id/txvHashStart"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            android:layout_marginEnd="10dp"
+            tools:text="ab"
+            />
+
+        <View
+            android:id="@+id/vHash1"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/txvHashStart"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash2"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash1"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash3"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash2"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash4"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash3"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash5"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash4"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash6"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash5"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash7"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash6"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash8"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash7"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash9"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash8"
+            android:background="@color/cardview_dark_background"/>
+        <View
+            android:id="@+id/vHash10"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash9"
+            android:background="@color/cardview_dark_background"/>
+
+        <TextView
+            android:id="@+id/txvHashEnd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/vHash10"
+            tools:text="69"
+            />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clKernel"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/guidelineMiddle"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txvHash">
+        app:layout_constraintTop_toBottomOf="@id/clHash"
+        app:layout_constraintBottom_toTopOf="@id/txvKernelRevisionVersion">
 
         <ImageView
             android:id="@+id/imvKernel3"
@@ -309,7 +237,8 @@
         android:layout_marginTop="10dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/clKernel"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="@id/guidelineMiddle"
+        app:layout_constraintBottom_toTopOf="@id/btnUpdate"
         tools:text="Kernel revision 19 Version 1.0.0"
         />
 
@@ -319,12 +248,187 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnUpdateTxt"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/btnReboot"
+        app:layout_constraintEnd_toStartOf="@id/guidelineMiddle"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.928" />
+        app:layout_constraintTop_toBottomOf="@+id/txvKernelRevisionVersion"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+    <!-- right side -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="15dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@id/guidelineMiddle"
+        app:layout_constraintBottom_toTopOf="@id/btnReboot"
+        app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/grpInfoGateway"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:constraint_referenced_ids="txvIPAddress,imvPing,txvPing,imvDownload,txvDownload,imvUpload,txvUpload,imvSignalQuality,txvSignalQuality" />
+
+        <com.google.android.material.chip.Chip
+            android:id="@+id/chpStatusGateway"
+            android:layout_width="80dp"
+            android:layout_height="40dp"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:backgroundTint="@color/gateway_status_online"
+            tools:text="Online" />
+
+        <TextView
+            android:id="@+id/txvIPAddress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/chpStatusGateway"
+            app:layout_constraintBottom_toTopOf="@id/imvPing"
+            tools:text="132.036.222.69"
+
+            />
+
+        <ImageView
+            android:id="@+id/imvPing"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintEnd_toStartOf="@+id/txvPing"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/txvIPAddress"
+            app:layout_constraintBottom_toTopOf="@id/imvDownload"
+            app:srcCompat="@drawable/ic_baseline_sync_alt_24" />
+
+        <TextView
+            android:id="@+id/txvPing"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imvPing"
+            app:layout_constraintEnd_toStartOf="@id/imvSignalQuality"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imvPing"
+            app:layout_constraintTop_toTopOf="@id/imvPing"
+            tools:text="14 ns" />
+
+        <ImageView
+            android:id="@+id/imvDownload"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+
+            app:layout_constraintEnd_toStartOf="@+id/txvDownload"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/imvPing"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_outline_cloud_download_24" />
+
+        <TextView
+            android:id="@+id/txvDownload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imvDownload"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imvDownload"
+            app:layout_constraintTop_toTopOf="@id/imvDownload"
+            tools:text="33.350 Ebps" />
+
+        <ImageView
+            android:id="@+id/imvUpload"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintEnd_toStartOf="@+id/txvUpload"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/txvDownload"
+            app:layout_constraintBottom_toBottomOf="@id/imvDownload"
+            app:layout_constraintTop_toTopOf="@id/imvDownload"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_outline_cloud_upload_24" />
+
+        <TextView
+            android:id="@+id/txvUpload"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imvUpload"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imvUpload"
+            app:layout_constraintTop_toTopOf="@id/imvUpload"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="33.350 Ebps" />
+
+        <ImageView
+            android:id="@+id/imvSignalQuality"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/imvPing"
+            app:layout_constraintEnd_toStartOf="@+id/txvSignalQuality"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintStart_toEndOf="@id/txvPing"
+            app:layout_constraintTop_toTopOf="@+id/imvPing"
+            app:srcCompat="@drawable/ic_baseline_signal_cellular_alt_24" />
+
+        <TextView
+            android:id="@+id/txvSignalQuality"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@id/imvSignalQuality"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/imvSignalQuality"
+            app:layout_constraintTop_toTopOf="@id/imvSignalQuality"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="-62 dBm" />
+
+
+        <TextView
+            android:id="@+id/txvOffline"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/infoOfflineGateway"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="invisible" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
 
     <Button
         android:id="@+id/btnReboot"
@@ -333,11 +437,9 @@
         android:text="@string/BtnReboottxt"
         app:layout_constraintBottom_toBottomOf="@+id/btnUpdate"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/btnUpdate"
+        app:layout_constraintStart_toStartOf="@id/guidelineMiddle"
         app:layout_constraintTop_toTopOf="@+id/btnUpdate"
         app:layout_constraintVertical_bias="0.0" />
-
 
 
 
