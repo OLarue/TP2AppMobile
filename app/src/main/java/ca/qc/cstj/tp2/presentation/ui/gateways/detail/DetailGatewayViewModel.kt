@@ -18,6 +18,7 @@ class DetailGatewayViewModel (private val href:String) : ViewModel(){
 
     init{
         viewModelScope.launch {
+            _gateway.value = gatewayRepository.retrieve(href)
         }
     }
 

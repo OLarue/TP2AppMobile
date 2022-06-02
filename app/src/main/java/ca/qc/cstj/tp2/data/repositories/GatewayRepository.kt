@@ -5,6 +5,7 @@ import ca.qc.cstj.tp2.core.LoadingResource
 import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.datasources.GatewayDataSource
 import ca.qc.cstj.tp2.domain.models.Gateway
+import ca.qc.cstj.tp2.domain.models.Ticket
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
@@ -51,6 +52,14 @@ class GatewayRepository {
                     emit(Resource.Error(ex,ex.message))
                 }
             }
+        }
+    }
+
+    suspend fun retrieve(href: String): Resource<Gateway> {
+        try{
+            return Resource.Success(gatewayDataSource.retrieve(href))
+        } catch (ex:Exception) {
+            return Resource.Error(ex, ex.message)
         }
     }
 

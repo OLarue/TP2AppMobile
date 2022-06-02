@@ -6,6 +6,7 @@ import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.core.LoadingResource
@@ -13,6 +14,7 @@ import ca.qc.cstj.tp2.core.notifyAllItemChanged
 import ca.qc.cstj.tp2.databinding.FragmentGatewayBinding
 import ca.qc.cstj.tp2.domain.models.*
 import ca.qc.cstj.tp2.presentation.adapters.GatewaysRecyclerViewAdapter
+import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragmentDirections
 
 class GatewaysFragment : Fragment(R.layout.fragment_gateway) {
     private val binding by viewBinding<FragmentGatewayBinding>()
@@ -50,6 +52,7 @@ class GatewaysFragment : Fragment(R.layout.fragment_gateway) {
     }
 
     private fun onRecyclerViewGatewayClick(gateway: Gateway) {
-
+        val direction = GatewaysFragmentDirections.actionNavigationGatewaysToNavigationDetailGatewayFragment(gateway.href)
+        findNavController().navigate(direction)
     }
 }
