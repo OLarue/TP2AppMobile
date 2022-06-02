@@ -1,13 +1,11 @@
 package ca.qc.cstj.tp2.presentation.ui.gateways.detail
 
 import androidx.lifecycle.*
-import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.LoadingResource
-import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.repositories.GatewayRepository
 import ca.qc.cstj.tp2.domain.models.Gateway
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.collect
+import kotlinx.coroutines.launch
 
 
 class DetailGatewayViewModel (private val href:String) : ViewModel(){
@@ -26,16 +24,17 @@ class DetailGatewayViewModel (private val href:String) : ViewModel(){
         }
     }
 
-
-    //code pour le reboot, reste code a P-A pour tester
-    fun reboot(){
-//        val serialNumber = _gateway.value!!.data!!.serialNumber
-        val serialNumber = Constants.HARDCORDED_SERIAL_NUMBER
+    fun reboot() {
+        val serialNumber = _gateway.value!!.data!!.serialNumber
         viewModelScope.launch{
+            _gateway.value = gatewayRepository.reboot(serialNumber)
+        }
+    }
 
-            gatewayRepository.reboot(serialNumber).collect{
-                _gateway.value = it
-            }
+    fun update() {
+        val serialNumber = _gateway.value!!.data!!.serialNumber
+        viewModelScope.launch{
+            _gateway.value = gatewayRepository.update(serialNumber)
         }
     }
 

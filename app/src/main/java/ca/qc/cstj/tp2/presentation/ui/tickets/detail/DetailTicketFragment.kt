@@ -1,7 +1,6 @@
 package ca.qc.cstj.tp2.presentation.ui.tickets.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
@@ -11,19 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.core.*
-import ca.qc.cstj.tp2.data.repositories.GatewayRepository
-import ca.qc.cstj.tp2.data.repositories.TicketRepository
 import ca.qc.cstj.tp2.databinding.FragmentDetailTicketBinding
 import ca.qc.cstj.tp2.domain.models.Customer
 import ca.qc.cstj.tp2.domain.models.Gateway
 import ca.qc.cstj.tp2.domain.models.Ticket
 import ca.qc.cstj.tp2.presentation.adapters.GatewaysRecyclerViewAdapter
-import ca.qc.cstj.tp2.presentation.adapters.TicketsRecyclerViewAdapter
-import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragmentDirections
-import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsViewModel
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.LatLng
 

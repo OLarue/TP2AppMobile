@@ -1,22 +1,19 @@
 package ca.qc.cstj.tp2.presentation.ui.gateways.detail
 
 import android.graphics.Color
-import android.opengl.Visibility
 import android.os.Bundle
-import android.provider.CalendarContract
-import android.util.Log
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import ca.qc.cstj.tp2.R
-import ca.qc.cstj.tp2.core.*
+import ca.qc.cstj.tp2.core.ColorHelper
+import ca.qc.cstj.tp2.core.LoadingResource
+import ca.qc.cstj.tp2.core.loadFromResource
 import ca.qc.cstj.tp2.databinding.FragmentDetailGatewayBinding
 import ca.qc.cstj.tp2.domain.models.Gateway
-import com.bumptech.glide.Glide
 
 class DetailGatewayFragment : Fragment(R.layout.fragment_detail_gateway){
     private val binding: FragmentDetailGatewayBinding by viewBinding()
@@ -52,7 +49,7 @@ class DetailGatewayFragment : Fragment(R.layout.fragment_detail_gateway){
         }
 
         binding.btnUpdate.setOnClickListener {
-
+            viewModel.update()
         }
     }
 
