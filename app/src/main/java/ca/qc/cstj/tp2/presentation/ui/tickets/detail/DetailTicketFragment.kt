@@ -84,6 +84,18 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
             }
         }
 
+        viewModel.installedGateway.observe(viewLifecycleOwner) {
+            when(it) {
+                is Resource.Error -> {
+                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                }
+                is Resource.Success -> {
+                    viewModel.addGateway(it.data!!)
+                    gatewaysRecyclerViewAdapter.notifyAllItemChanged()
+                }
+            }
+        }
+
         binding.btnSolve.setOnClickListener {
             //TODO
             viewModel.changeTicketStatus()

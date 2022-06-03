@@ -22,6 +22,9 @@ class DetailTicketViewModel(private val href:String) : ViewModel() {
     private val _gateways = MutableLiveData<LoadingResource<MutableList<Gateway>>>()
     val gateways: LiveData<LoadingResource<MutableList<Gateway>>> get() = _gateways
 
+    private val _installedGateway = MutableLiveData<Resource<Gateway>>()
+    val installedGateway: LiveData<Resource<Gateway>> get() = _installedGateway
+
     init{
         viewModelScope.launch{
             _ticket.value = ticketRepository.retrieve(href)
@@ -40,19 +43,13 @@ class DetailTicketViewModel(private val href:String) : ViewModel() {
     }
 
     fun installRouter(json: String) {
-
         viewModelScope.launch {
-            val result = gatewayRepository.install(_ticket.value!!.data!!.customer.href, json)
-            /*when(result)
-            {
-                is Resource.Error -> {
-
-                }
-                is Resource.Success -> {
-                    result.data?.let { _gateways.value!!.data!!.add(it) }
-                }
-            }*/
+            _installedGateway.value = gatewayRepository.install(_ticket.value!!.data!!.customer.href, json)
         }
+    }
+
+    fun addGateway(gateway: Gateway) {
+        _gateways.value!!.data!!.add(gateway)
     }
 
     fun changeTicketStatus(){

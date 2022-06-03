@@ -2,6 +2,7 @@ package ca.qc.cstj.tp2.data.repositories
 
 import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.LoadingResource
+import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.datasources.GatewayDataSource
 import ca.qc.cstj.tp2.domain.models.Customer
 import ca.qc.cstj.tp2.domain.models.Gateway
