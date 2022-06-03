@@ -101,16 +101,30 @@
 
                 tools:listitem="@layout/item_gateway"
                 tools:spanCount="2" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/pgbGatewaysLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="?android:attr/progressBarStyleLarge"
+                android:indeterminateTint="@android:color/black"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
     <Button
         android:id="@+id/btnInstall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="INSTALL"
+        android:text="@string/btnInstall"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnSolve"
         app:layout_constraintHorizontal_bias="0.0"
@@ -122,9 +136,20 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="16dp"
-        android:text="SOLVE"
+        android:text="@string/btnSolve"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@id/btnInstall"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
+    <Button
+        android:id="@+id/btnOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:text="@string/btnOpen"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/btnSolve"
         app:layout_constraintStart_toEndOf="@id/btnInstall"
         app:layout_constraintTop_toBottomOf="@+id/cardView" />
 

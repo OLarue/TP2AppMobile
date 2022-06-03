@@ -13,22 +13,6 @@ import kotlinx.serialization.json.Json
 class NetworkDataSource {
     private val json = Json { ignoreUnknownKeys = true }
 
-//    suspend fun retrieveAll() : List<NetworkNode> {
-//        return withContext(Dispatchers.IO) {
-//            val (_,_, result) = Constants.BaseURL.NETWORK.httpGet().responseJson()
-//            when(result){
-//                is Result.Success -> {
-//                    return@withContext json.decodeFromString(result.value.content)
-//                }
-//                is Result.Failure -> {
-//                    throw result.error.exception
-//                }
-//            }
-//
-//        }
-//;
-//    }
-
     suspend fun retrieve() : Network {
         return withContext(Dispatchers.IO) {
             val (_,_,result) = Constants.BaseURL.NETWORK.httpGet().responseJson()

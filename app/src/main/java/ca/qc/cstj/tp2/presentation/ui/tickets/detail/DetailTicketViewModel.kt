@@ -1,7 +1,5 @@
 package ca.qc.cstj.tp2.presentation.ui.tickets.detail
 
-import android.provider.Settings.Global.getString
-import android.util.Log
 import androidx.lifecycle.*
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.core.LoadingResource
@@ -55,6 +53,23 @@ class DetailTicketViewModel(private val href:String) : ViewModel() {
                 }
             }*/
         }
+    }
+
+    fun changeTicketStatus(){
+
+
+        if(ticket.value!!.data!!.status == "Open")
+        {
+          viewModelScope.launch {
+              _ticket.value = ticketRepository.solve(href)
+          }
+        } else {
+            viewModelScope.launch {
+                _ticket.value = ticketRepository.open(href)
+            }
+        }
+
+
     }
 
 }

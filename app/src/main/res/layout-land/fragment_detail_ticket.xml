@@ -100,6 +100,16 @@
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/btnOpen"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnOpen"
+        app:layout_constraintBottom_toBottomOf="@+id/btnSolve"
+        app:layout_constraintEnd_toEndOf="@+id/btnSolve"
+        app:layout_constraintStart_toStartOf="@+id/btnSolve"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline4"
         android:layout_width="wrap_content"
@@ -145,6 +155,21 @@
             tools:layout_editor_absoluteX="0dp"
             tools:listitem="@layout/item_gateway"
             tools:spanCount="2" />
+
+        <androidx.core.widget.ContentLoadingProgressBar
+            android:id="@+id/pgbGatewaysLoading"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:indeterminateTint="@android:color/black"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="@+id/rcvCustomerGateways"
+            app:layout_constraintEnd_toEndOf="@+id/rcvCustomerGateways"
+            app:layout_constraintStart_toStartOf="@+id/rcvCustomerGateways"
+            app:layout_constraintTop_toTopOf="@+id/rcvCustomerGateways"
+            tools:visibility="visible" />
+
+
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline5"

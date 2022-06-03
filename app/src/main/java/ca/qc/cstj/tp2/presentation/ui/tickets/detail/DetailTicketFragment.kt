@@ -1,7 +1,6 @@
 package ca.qc.cstj.tp2.presentation.ui.tickets.detail
 
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
@@ -11,19 +10,13 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import ca.qc.cstj.tp2.R
 import ca.qc.cstj.tp2.core.*
-import ca.qc.cstj.tp2.data.repositories.GatewayRepository
-import ca.qc.cstj.tp2.data.repositories.TicketRepository
 import ca.qc.cstj.tp2.databinding.FragmentDetailTicketBinding
 import ca.qc.cstj.tp2.domain.models.Customer
 import ca.qc.cstj.tp2.domain.models.Gateway
 import ca.qc.cstj.tp2.domain.models.Ticket
 import ca.qc.cstj.tp2.presentation.adapters.GatewaysRecyclerViewAdapter
-import ca.qc.cstj.tp2.presentation.adapters.TicketsRecyclerViewAdapter
-import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragmentDirections
-import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsViewModel
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.LatLng
 import io.github.g00fy2.quickie.QRResult
@@ -79,21 +72,31 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
                     Toast.makeText(requireContext(),it.message, Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
-                   //TODO()
+                    binding.pgbGatewaysLoading.show()
+                    binding.rcvCustomerGateways.visibility = View.INVISIBLE
                 }
                 is LoadingResource.Success -> {
                     gatewaysRecyclerViewAdapter.gateways = it.data!!
                     gatewaysRecyclerViewAdapter.notifyAllItemChanged()
+                    binding.pgbGatewaysLoading.hide()
+                    binding.rcvCustomerGateways.visibility = View.VISIBLE
                 }
             }
         }
 
         binding.btnSolve.setOnClickListener {
             //TODO
+            viewModel.changeTicketStatus()
         }
 
         binding.btnInstall.setOnClickListener{
             quickieActivityLauncher.launch(null)
+        }
+
+        binding.btnOpen!!.setOnClickListener {
+        // Mais pourquoi le bouton est nullable???
+        //TODO
+            viewModel.changeTicketStatus()
         }
 
         binding.fabLocation.setOnClickListener{
@@ -126,6 +129,22 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
             includeTicket.chpTicketStatus.text = ticket.status
             includeTicket.chpTicketPriority.text = ticket.priority
         }
+
+        if (ticket.status == "Open")
+        {
+            with(binding){
+                btnOpen!!.visibility = View.INVISIBLE
+                btnInstall.visibility = View.VISIBLE
+                btnSolve.visibility = View.VISIBLE
+            }
+        } else {
+            with(binding){
+                btnOpen!!.visibility = View.VISIBLE
+                btnInstall.visibility = View.INVISIBLE
+                btnSolve.visibility = View.INVISIBLE
+            }
+        }
+
     }
 
     private fun showCustomerInfo(customer: Customer){

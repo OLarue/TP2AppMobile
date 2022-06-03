@@ -37,5 +37,21 @@ class TicketRepository {
         }
     }
 
+    suspend fun solve(href: String): Resource<Ticket>{
+        try {
+            return Resource.Success(ticketDataSource.solveTicket(href))
+        } catch (ex:Exception) {
+            return Resource.Error(ex, ex.message)
+        }
+    }
+
+    suspend fun open(href: String): Resource<Ticket>{
+        try {
+            return Resource.Success(ticketDataSource.openTicket(href))
+        } catch (ex:Exception) {
+            return Resource.Error(ex, ex.message)
+        }
+    }
+
 
 }

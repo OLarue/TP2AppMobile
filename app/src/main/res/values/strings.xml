@@ -20,5 +20,8 @@
     <string name="title_activity_maps">MapsActivity</string>
     <string name="user_canceled">QR scan has been canceled</string>
     <string name="missing_permission">Missing permissions</string>
+    <string name="btnOpen">OPEN</string>
+    <string name="btnSolve">SOLVE</string>
+    <string name="btnInstall">INSTALL</string>
 
 </resources>

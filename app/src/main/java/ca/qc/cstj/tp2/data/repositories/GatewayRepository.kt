@@ -1,9 +1,7 @@
 package ca.qc.cstj.tp2.data.repositories
 
-import android.util.Log
 import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.LoadingResource
-import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.data.datasources.GatewayDataSource
 import ca.qc.cstj.tp2.domain.models.Customer
 import ca.qc.cstj.tp2.domain.models.Gateway
@@ -53,14 +51,33 @@ class GatewayRepository {
         }
     }
 
-    suspend fun reboot(serialNumber: String) : Flow<Resource<Gateway>> {
+    suspend fun reboot(serialNumber: String): LoadingResource<Gateway> {
+        return try {
+            LoadingResource.Success(gatewayDataSource.reboot(serialNumber))
+        } catch (ex:Exception) {
+            LoadingResource.Error(ex, ex.message)
+        }
+
+    }
+
+    suspend fun update(serialNumber: String) : LoadingResource<Gateway> {
+        return try {
+            LoadingResource.Success(gatewayDataSource.update(serialNumber))
+        } catch (ex:Exception) {
+            LoadingResource.Error(ex, ex.message)
+        }
+    }
+
+    suspend fun retrieve(href: String): Flow<LoadingResource<Gateway>> {
         return flow{
             while(true){
-                try {
-                    emit(Resource.Success(gatewayDataSource.reboot(serialNumber)))
+                try{
+                    emit(LoadingResource.Loading())
+                    emit(LoadingResource.Success(gatewayDataSource.retrieve(href)))
                 } catch (ex:Exception){
-                    emit(Resource.Error(ex,ex.message))
+                    emit(LoadingResource.Error(ex,ex.message))
                 }
+                delay(Constants.RefreshRates.GATEWAY_REFRESH_RATE)
             }
         }
     }
