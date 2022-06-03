@@ -1,5 +1,6 @@
 package ca.qc.cstj.tp2.data.datasources
 
+import android.widget.Toast
 import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.Resource
 import ca.qc.cstj.tp2.domain.models.Customer
@@ -17,7 +18,7 @@ import kotlinx.serialization.json.Json
 class GatewayDataSource {
     private val json = Json { ignoreUnknownKeys = true }
 
-    suspend fun retrieveAll() : List<Gateway> {
+    suspend fun retrieveAll() : MutableList<Gateway> {
         return withContext(Dispatchers.IO) {
             val (_, _, result) = Constants.BaseURL.GATEWAYS.httpGet().responseJson()
             when(result) {
@@ -31,7 +32,7 @@ class GatewayDataSource {
         }
     }
 
-    suspend fun retrieveAllFromCustomer(href:String) : List<Gateway>{
+    suspend fun retrieveAllFromCustomer(href:String) : MutableList<Gateway>{
         return withContext(Dispatchers.IO) {
             val (_, _, result) = href.plus("/gateways").httpGet().responseJson()
             when(result) {
@@ -51,7 +52,7 @@ class GatewayDataSource {
             val(_,_,result) = Constants.BaseURL.GATEWAYS.plus(url).httpPost().jsonBody("").responseJson()
             when(result){
                 is Result.Success -> {
-                    return@withContext Json.decodeFromString<Gateway>(result.value.content)
+                    return@withContext json.decodeFromString<Gateway>(result.value.content)
                 }
                 is Result.Failure -> {
                     throw result.error.exception
@@ -59,4 +60,6 @@ class GatewayDataSource {
             }
         }
     }
+
+
 }

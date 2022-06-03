@@ -18,5 +18,7 @@
     <string name="btnUpdateTxt">Update</string>
     <string name="BtnReboottxt">Reboot</string>
     <string name="title_activity_maps">MapsActivity</string>
+    <string name="user_canceled">QR scan has been canceled</string>
+    <string name="missing_permission">Missing permissions</string>
 
 </resources>

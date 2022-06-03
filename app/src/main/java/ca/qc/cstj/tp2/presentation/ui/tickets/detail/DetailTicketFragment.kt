@@ -26,6 +26,8 @@ import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsFragmentDirections
 import ca.qc.cstj.tp2.presentation.ui.tickets.TicketsViewModel
 import com.bumptech.glide.Glide
 import com.google.android.gms.maps.model.LatLng
+import io.github.g00fy2.quickie.QRResult
+import io.github.g00fy2.quickie.ScanQRCode
 
 class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
 
@@ -39,6 +41,8 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
 
     private var position: LatLng? = null
     private var customerName: String = "nom"
+
+    private var quickieActivityLauncher = registerForActivityResult(ScanQRCode(), ::handleQuickieResult)
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -89,7 +93,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
         }
 
         binding.btnInstall.setOnClickListener{
-            //TODO
+            quickieActivityLauncher.launch(null)
         }
 
         binding.fabLocation.setOnClickListener{
@@ -142,6 +146,25 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
     private fun onRecyclerViewGatewayClick(gateway: Gateway) {
         val direction = DetailTicketFragmentDirections.actionNavigationDetailTicketFragmentToNavigationDetailGatewayFragment(gateway.href)
         findNavController().navigate(direction)
+    }
+
+    private fun handleQuickieResult(qrResult: QRResult?) {
+        lateinit var routerJsonData: String
+        when(qrResult) {
+            is QRResult.QRSuccess -> {
+                routerJsonData = qrResult.content.rawValue
+                viewModel.installRouter(routerJsonData)
+            }
+            is QRResult.QRUserCanceled -> {
+                Toast.makeText(requireContext(), getString(R.string.user_canceled), Toast.LENGTH_LONG).show()
+            }
+            is QRResult.QRMissingPermission -> {
+                Toast.makeText(requireContext(), getString(R.string.missing_permission), Toast.LENGTH_LONG).show()
+            }
+            is QRResult.QRError -> {
+                Toast.makeText(requireContext(), qrResult.exception.message, Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
 }
