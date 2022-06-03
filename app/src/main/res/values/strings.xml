@@ -1,8 +1,8 @@
 <resources>
-    <string name="app_name">TP2</string>
-    <string name="LoadingText">Loading %d/%d …</string>
-    <string name="TeamNames">Alexis Millette\nOlivier Larue\nPierre-Antoine Lajoie</string>
-    <string name="ReservedName">Tenretni - 2021®</string>
+    <string name="app_name" translatable="false">TP2</string>
+    <string name="LoadingText">Loadin %d/%d …</string>
+    <string name="TeamNames" translatable="false">Alexis Millette\nOlivier Larue\nPierre-Antoine Lajoie</string>
+    <string name="ReservedName" translatable="false">Tenretni - 2021®</string>
     <string name="navBarTickets">Tickets</string>
     <string name="navBarGateways">Gateways</string>
     <string name="navBarNetwork">Network</string>
@@ -24,4 +24,7 @@
     <string name="btnSolve">SOLVE</string>
     <string name="btnInstall">INSTALL</string>
 
+    <string name="pingString" translatable="false">%d ns</string>
+    <string name="ebpsString" translatable="false">%.3f Ebps</string>
+    <string name="infoOfflineGateway" translatable="false">N/A</string>
 </resources>
