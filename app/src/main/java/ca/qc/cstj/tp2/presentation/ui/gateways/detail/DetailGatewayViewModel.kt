@@ -1,6 +1,7 @@
 package ca.qc.cstj.tp2.presentation.ui.gateways.detail
 
 import androidx.lifecycle.*
+import ca.qc.cstj.tp2.core.Constants
 import ca.qc.cstj.tp2.core.LoadingResource
 import ca.qc.cstj.tp2.data.repositories.GatewayRepository
 import ca.qc.cstj.tp2.domain.models.Gateway
@@ -36,6 +37,10 @@ class DetailGatewayViewModel (private val href:String) : ViewModel(){
         viewModelScope.launch{
             _gateway.value = gatewayRepository.update(serialNumber)
         }
+    }
+
+    fun isGatewayOnline() : Boolean{
+        return _gateway.value!!.data!!.connection.status == Constants.ConnectionStatus.Online.toString()
     }
 
     //Pour le constructeur qui prend un parametre

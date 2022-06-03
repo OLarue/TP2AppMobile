@@ -13,6 +13,7 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.json.Json
 
 class GatewayDataSource {
+
     private val json = Json { ignoreUnknownKeys = true }
 
     suspend fun retrieveAll() : List<Gateway> {
@@ -49,7 +50,7 @@ class GatewayDataSource {
             val(_,_,result) = Constants.BaseURL.GATEWAYS.plus(url).httpPost().jsonBody("").responseJson()
             when(result){
                 is Result.Success -> {
-                    return@withContext Json.decodeFromString(result.value.content)
+                    return@withContext json.decodeFromString(result.value.content)
                 }
                 is Result.Failure -> {
                     throw result.error.exception
@@ -64,7 +65,7 @@ class GatewayDataSource {
             val(_,_,result) = Constants.BaseURL.GATEWAYS.plus(url).httpPost().jsonBody("").responseJson()
             when(result){
                 is Result.Success -> {
-                    return@withContext Json.decodeFromString(result.value.content)
+                    return@withContext json.decodeFromString(result.value.content)
                 }
                 is Result.Failure -> {
                     throw result.error.exception

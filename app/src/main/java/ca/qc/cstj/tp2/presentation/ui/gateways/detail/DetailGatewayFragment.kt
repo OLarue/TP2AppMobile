@@ -2,6 +2,7 @@ package ca.qc.cstj.tp2.presentation.ui.gateways.detail
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
@@ -31,6 +32,7 @@ class DetailGatewayFragment : Fragment(R.layout.fragment_detail_gateway){
                 is LoadingResource.Error -> {
                     Toast.makeText(requireContext(), it.throwable.message, Toast.LENGTH_LONG).show()
                     //pour revenir au fragment d'avant
+                    Log.d("MESSAGE CACA", it.throwable.message.toString())
                     requireActivity().supportFragmentManager.popBackStack()
                 }
                 is LoadingResource.Success -> {
@@ -45,11 +47,13 @@ class DetailGatewayFragment : Fragment(R.layout.fragment_detail_gateway){
         }
 
         binding.btnReboot.setOnClickListener {
-            viewModel.reboot()
+            if(viewModel.isGatewayOnline())
+                viewModel.reboot()
         }
 
         binding.btnUpdate.setOnClickListener {
-            viewModel.update()
+            if(viewModel.isGatewayOnline())
+                viewModel.update()
         }
     }
 
@@ -70,8 +74,6 @@ class DetailGatewayFragment : Fragment(R.layout.fragment_detail_gateway){
             with(binding){
                 grpInfoGateway.visibility = View.INVISIBLE
                 txvOffline.visibility = View.VISIBLE
-
-
             }
         }
         with(binding){

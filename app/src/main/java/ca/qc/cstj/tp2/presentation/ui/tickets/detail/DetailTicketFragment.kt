@@ -68,11 +68,14 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
                     Toast.makeText(requireContext(),it.message, Toast.LENGTH_LONG).show()
                 }
                 is LoadingResource.Loading -> {
-                   //TODO()
+                    binding.pgbGatewaysLoading.show()
+                    binding.rcvCustomerGateways.visibility = View.INVISIBLE
                 }
                 is LoadingResource.Success -> {
                     gatewaysRecyclerViewAdapter.gateways = it.data!!
                     gatewaysRecyclerViewAdapter.notifyAllItemChanged()
+                    binding.pgbGatewaysLoading.hide()
+                    binding.rcvCustomerGateways.visibility = View.VISIBLE
                 }
             }
         }

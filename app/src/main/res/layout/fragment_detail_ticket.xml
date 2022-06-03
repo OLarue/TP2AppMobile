@@ -101,9 +101,23 @@
 
                 tools:listitem="@layout/item_gateway"
                 tools:spanCount="2" />
+
+            <androidx.core.widget.ContentLoadingProgressBar
+                android:id="@+id/pgbGatewaysLoading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                style="?android:attr/progressBarStyleLarge"
+                android:indeterminateTint="@android:color/black"
+                android:visibility="invisible"
+                tools:visibility="visible"
+                />
+
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
+
+
 
     <Button
         android:id="@+id/btnInstall"
