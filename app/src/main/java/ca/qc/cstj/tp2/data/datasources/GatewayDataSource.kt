@@ -16,7 +16,7 @@ class GatewayDataSource {
 
     private val json = Json { ignoreUnknownKeys = true }
 
-    suspend fun retrieveAll() : List<Gateway> {
+    suspend fun retrieveAll() : MutableList<Gateway> {
         return withContext(Dispatchers.IO) {
             val (_, _, result) = Constants.BaseURL.GATEWAYS.httpGet().responseJson()
             when(result) {
@@ -30,7 +30,7 @@ class GatewayDataSource {
         }
     }
 
-    suspend fun retrieveAllFromCustomer(href:String) : List<Gateway>{
+    suspend fun retrieveAllFromCustomer(href:String) : MutableList<Gateway>{
         return withContext(Dispatchers.IO) {
             val (_, _, result) = href.plus("/gateways").httpGet().responseJson()
             when(result) {
