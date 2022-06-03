@@ -5,6 +5,7 @@ import android.util.Log
 import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -29,6 +30,9 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.ticketsTitle)
+
         ticketsRecyclerViewAdapter = TicketsRecyclerViewAdapter(listOf(), ::onRecyclerViewTicketClick)
 
         binding.rcvTickets.apply {
@@ -40,7 +44,6 @@ class TicketsFragment : Fragment(R.layout.fragment_tickets) {
             when(it){
                 is LoadingResource.Error -> {
                     Toast.makeText(requireContext(),it.message, Toast.LENGTH_LONG).show()
-                    Log.d("Erreur loading", it.message!!)
                 }
                 is LoadingResource.Loading -> {
                     binding.pgbTicketLoading.show()

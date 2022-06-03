@@ -95,7 +95,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 
-        android:text="@string/btnSolveText"
+        android:text="@string/btnSolve"
         app:layout_constraintBottom_toTopOf="@+id/guideline6"
         app:layout_constraintEnd_toStartOf="@+id/guideline4"
         app:layout_constraintStart_toStartOf="parent" />
@@ -134,7 +134,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Gateway"
+            android:text="@string/gatewayText"
             android:textSize="18sp"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
@@ -182,7 +182,7 @@
             android:id="@+id/btnInstall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/btnInstallText"
+            android:text="@string/btnInstall"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

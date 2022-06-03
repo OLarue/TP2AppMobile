@@ -30,7 +30,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
     }
     private val args : DetailTicketFragmentArgs by navArgs()
 
-    lateinit var gatewaysRecyclerViewAdapter: GatewaysRecyclerViewAdapter
+    private lateinit var gatewaysRecyclerViewAdapter: GatewaysRecyclerViewAdapter
 
     private var position: LatLng? = null
     private var customerName: String = "nom"
@@ -87,17 +87,17 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
         viewModel.installedGateway.observe(viewLifecycleOwner) {
             when(it) {
                 is Resource.Error -> {
-                    Toast.makeText(requireContext(), it.message, Toast.LENGTH_LONG).show()
+                    Toast.makeText(requireContext(), it.throwable.message, Toast.LENGTH_LONG).show()
                 }
                 is Resource.Success -> {
                     viewModel.addGateway(it.data!!)
                     gatewaysRecyclerViewAdapter.notifyAllItemChanged()
+                    Toast.makeText(requireContext(), getString(R.string.gatewayInstalled), Toast.LENGTH_LONG).show()
                 }
             }
         }
 
         binding.btnSolve.setOnClickListener {
-            //TODO
             viewModel.changeTicketStatus()
         }
 
@@ -105,9 +105,7 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
             quickieActivityLauncher.launch(null)
         }
 
-        binding.btnOpen!!.setOnClickListener {
-        // Mais pourquoi le bouton est nullable???
-        //TODO
+        binding.btnOpen.setOnClickListener {
             viewModel.changeTicketStatus()
         }
 
@@ -145,13 +143,13 @@ class DetailTicketFragment : Fragment(R.layout.fragment_detail_ticket){
         if (ticket.status == "Open")
         {
             with(binding){
-                btnOpen!!.visibility = View.INVISIBLE
+                btnOpen.visibility = View.INVISIBLE
                 btnInstall.visibility = View.VISIBLE
                 btnSolve.visibility = View.VISIBLE
             }
         } else {
             with(binding){
-                btnOpen!!.visibility = View.VISIBLE
+                btnOpen.visibility = View.VISIBLE
                 btnInstall.visibility = View.INVISIBLE
                 btnSolve.visibility = View.INVISIBLE
             }

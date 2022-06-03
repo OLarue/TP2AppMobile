@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import ca.qc.cstj.tp2.core.ColorHelper
+import ca.qc.cstj.tp2.core.DateHelper
 import ca.qc.cstj.tp2.databinding.FragmentTicketsBinding
 import ca.qc.cstj.tp2.databinding.ItemTicketBinding
 import ca.qc.cstj.tp2.domain.models.Ticket
@@ -20,7 +21,7 @@ class TicketsRecyclerViewAdapter(
             //Ticket Number
             binding.txvTicketNumber.text = ticket.ticketNumber
             //DateCreation
-            binding.txvTicketCreatedDate.text = ticket.createdDate
+            binding.txvTicketCreatedDate.text = DateHelper.formatISODate(ticket.createdDate)
 
             //Priority
             binding.chpTicketPriority.text = ticket.priority

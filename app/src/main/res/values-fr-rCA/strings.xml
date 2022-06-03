@@ -6,4 +6,19 @@
     <string name="navBarNetwork">Réseau</string>
     <string name="onlineStatusGateway">En ligne</string>
     <string name="offlineStatusGateway">Hors ligne</string>
+    <string name="txvReboot">Prochain redémarrage à:</string>
+    <string name="txvUpdate">Dernière mise à jour:</string>
+    <string name="btnUpdateTxt">Mettre à jour</string>
+    <string name="BtnReboottxt">Redémarrer</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="user_canceled">Scan QR a été annulé</string>
+    <string name="missing_permission">Permissions manquantes</string>
+    <string name="btnOpen">OUVERT</string>
+    <string name="btnSolve">RÉSOUDRE</string>
+    <string name="btnInstall">INSTALLER</string>
+    <string name="gatewayText">Borne</string>
+    <string name="gatewayInstalled">Borne installé avec succès</string>
+    <string name="ticketsTitle">Billets</string>
+    <string name="networkTitle">Réseau</string>
+    <string name="gatewaysTitle">Bornes</string>
 </resources>

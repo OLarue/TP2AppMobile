@@ -7,6 +7,7 @@ import android.view.View
 import android.viewbinding.library.fragment.viewBinding
 import android.widget.Toast
 import androidx.annotation.RequiresApi
+import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,6 +29,9 @@ class NetworkFragment : Fragment(R.layout.fragment_network) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+
+        (requireActivity() as AppCompatActivity).supportActionBar?.title = getString(R.string.networkTitle)
 
         networkNodesRecyclerViewAdapter = NetworkNodesRecyclerViewAdapter()
 
